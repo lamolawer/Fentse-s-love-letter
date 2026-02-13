@@ -353,7 +353,7 @@ function sendProposalEmail(response) {
 
   function openMailClient(){
     const subject = response === 'yes' ? 'Proposal accepted 💍' : 'Proposal response';
-    const body = templateParams.message + '\n\n(Automated fallback - please send from your mail client)';
+    const body = templateParams.message + '\n\n Please write a customise letter to your husband lala😍☺️.';
     const to = templateParams.to_email || '';
     const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
@@ -469,3 +469,4 @@ if(worldScene) {
     }, 1500);
   });
 }
+
