@@ -207,6 +207,7 @@ const reasons = [
   "Because you are my greatest adventure and safest home.",
   "Because your sexy and your my favourite temple to pray in.",
   "And because I Just Do. 💕",
+  "👇🏾Scroll down to the envelope.",
   ".......",
 ];
 
@@ -469,4 +470,5 @@ if(worldScene) {
     }, 1500);
   });
 }
+
 
