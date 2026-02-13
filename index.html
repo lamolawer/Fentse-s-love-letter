@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js">
+</script>
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body class="without-you">
+<div class="container">
+
+  <!-- Welcome -->
+  <div class="card">
+    <h1>💌 My Valentine 💌</h1>
+    <div class="heart">💝</div>
+    <p style="text-align:center">
+      This little world exists because <b>you</b> exist.<br>
+      Happy Valentine's Day to my forever love.
+    </p>
+  </div>
+
+  <!-- Anime World Transformation -->
+  <div class="card" style="text-align:center; padding: 40px 25px; overflow: hidden;">
+    <h2 style="margin-bottom: 20px;">✨ My World Without You ✨</h2>
+    <p style="font-size:14px; opacity:0.9; margin-bottom:30px;">Click the world below to see how everything changes when you're with me...</p>
+    
+    <svg id="worldScene" viewBox="0 0 400 300" style="width: 100%; max-width: 400px; height: auto; cursor: pointer; display: block; margin: 0 auto; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.1));">
+      <!-- Background sky -->
+      <rect id="sky" width="400" height="200" fill="#708090" class="sky-sad"/>
+      <rect id="ground" y="200" width="400" height="100" fill="#696969" class="ground-sad"/>
+      
+      <!-- Sad moon/sun (anime style - large sad eyes) -->
+      <g id="sadSun" class="sun-sad">
+        <circle cx="320" cy="50" r="45" fill="#D3D3D3" stroke="#A9A9A9" stroke-width="2"/>
+        <!-- Left eye (sad) -->
+        <ellipse cx="305" cy="42" rx="12" ry="15" fill="#000" stroke="#000" stroke-width="1"/>
+        <ellipse cx="307" cy="38" rx="5" ry="6" fill="#fff" opacity="0.3"/>
+        <!-- Right eye (sad) -->
+        <ellipse cx="335" cy="42" rx="12" ry="15" fill="#000" stroke="#000" stroke-width="1"/>
+        <ellipse cx="337" cy="38" rx="5" ry="6" fill="#fff" opacity="0.3"/>
+        <!-- Sad tears -->
+        <ellipse cx="305" cy="65" rx="3" ry="8" fill="#87CEEB" opacity="0.8"/>
+        <ellipse cx="335" cy="65" rx="3" ry="8" fill="#87CEEB" opacity="0.8"/>
+        <!-- Sad mouth -->
+        <path d="M 310 70 Q 320 60 330 70" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      
+      <!-- Happy sun (anime style - large happy eyes) -->
+      <g id="happySun" class="sun-happy" style="opacity: 0; transform: scale(0); transform-origin: 320px 50px;">
+        <circle cx="320" cy="50" r="45" fill="#FFD700" stroke="#FFA500" stroke-width="2"/>
+        <!-- Sparkles around sun -->
+        <circle cx="275" cy="25" r="3" fill="#FFFF00" opacity="0.8"/>
+        <circle cx="365" cy="30" r="3" fill="#FFFF00" opacity="0.8"/>
+        <circle cx="290" cy="5" r="3" fill="#FFFF00" opacity="0.8"/>
+        <circle cx="350" cy="8" r="3" fill="#FFFF00" opacity="0.8"/>
+        <!-- Left eye (happy) -->
+        <ellipse cx="305" cy="42" rx="12" ry="15" fill="#000"/>
+        <ellipse cx="305" cy="38" rx="6" ry="8" fill="#fff"/>
+        <!-- Right eye (happy) -->
+        <ellipse cx="335" cy="42" rx="12" ry="15" fill="#000"/>
+        <ellipse cx="335" cy="38" rx="6" ry="8" fill="#fff"/>
+        <!-- Happy eyebrows -->
+        <path d="M 298 30 Q 305 26 312 30" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 328 30 Q 335 26 342 30" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- Happy mouth -->
+        <path d="M 310 65 Q 320 75 330 65" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      
+      <!-- Clouds (sad, grey with expression) -->
+      <g id="sadClouds">
+        <ellipse cx="80" cy="50" rx="35" ry="22" fill="#808080" class="cloud-sad"/>
+        <ellipse cx="110" cy="45" rx="40" ry="25" fill="#808080" class="cloud-sad"/>
+        <ellipse cx="50" cy="55" rx="30" ry="20" fill="#A9A9A9" class="cloud-sad"/>
+        <!-- Sad cloud eyes/expression (small) -->
+        <circle cx="75" cy="45" r="3" fill="#000"/>
+        <circle cx="95" cy="40" r="3" fill="#000"/>
+      </g>
+      
+      <!-- Clouds (happy, fluffy white with happy expression) -->
+      <g id="happyClouds" style="opacity: 0;">
+        <ellipse cx="80" cy="50" rx="35" ry="22" fill="#FFFFFF"/>
+        <ellipse cx="110" cy="45" rx="40" ry="25" fill="#FFFFFF"/>
+        <ellipse cx="50" cy="55" rx="30" ry="20" fill="#F0F8FF"/>
+        <!-- Happy cloud smile -->
+        <path d="M 70 50 Q 80 55 90 50" stroke="#FFB6C1" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 100 48 Q 112 53 124 48" stroke="#FFB6C1" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      
+      <!-- Sad anime-style tree -->
+      <g id="sadTree">
+        <rect x="340" y="150" width="15" height="60" fill="#8B4513" rx="3"/>
+        <!-- Branch structure -->
+        <ellipse cx="347.5" cy="120" rx="40" ry="38" fill="#4a3728"/>
+        <!-- Sad tree expression -->
+        <circle cx="340" cy="115" r="3" fill="#000"/>
+        <circle cx="355" cy="115" r="3" fill="#000"/>
+        <path d="M 340 125 Q 347.5 122 355 125" stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </g>
+      
+      <!-- Happy anime-style tree -->
+      <g id="happyTree" style="opacity: 0; transform: scale(1); transform-origin: 347.5px 140px;">
+        <rect x="340" y="150" width="15" height="60" fill="#8B4513" rx="3"/>
+        <!-- Lush green foliage -->
+        <ellipse cx="347.5" cy="110" rx="45" ry="42" fill="#32CD32"/>
+        <ellipse cx="320" cy="135" rx="25" ry="28" fill="#00D000"/>
+        <ellipse cx="375" cy="135" rx="25" ry="28" fill="#00D000"/>
+        <!-- Happy tree expression -->
+        <circle cx="340" cy="112" r="4" fill="#000"/>
+        <circle cx="355" cy="112" r="4" fill="#000"/>
+        <circle cx="340" cy="110" r="2" fill="#fff"/>
+        <circle cx="355" cy="110" r="2" fill="#fff"/>
+        <path d="M 340 122 Q 347.5 128 355 122" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </g>
+      
+      <!-- Sad flowers (grey, wilted) -->
+      <g id="sadFlowers">
+        <g class="sad-flower-group">
+          <line x1="60" y1="230" x2="60" y2="200" stroke="#696969" stroke-width="2"/>
+          <circle cx="60" cy="190" r="8" fill="#808080"/>
+        </g>
+        <g class="sad-flower-group">
+          <line x1="120" y1="230" x2="120" y2="200" stroke="#696969" stroke-width="2"/>
+          <circle cx="120" cy="190" r="8" fill="#808080"/>
+        </g>
+        <g class="sad-flower-group">
+          <line x1="180" y1="230" x2="180" y2="200" stroke="#696969" stroke-width="2"/>
+          <circle cx="180" cy="190" r="8" fill="#808080"/>
+        </g>
+      </g>
+      
+      <!-- Happy anime-style flowers (colorful, blooming) -->
+      <g id="happyFlowers" style="opacity: 0;">
+        <!-- Flower 1 - Pink -->
+        <g class="happy-flower-group">
+          <line x1="60" y1="230" x2="60" y2="195" stroke="#228B22" stroke-width="3"/>
+          <circle cx="60" cy="195" r="2" fill="#228B22"/>
+          <!-- Petals -->
+          <circle cx="50" cy="185" r="7" fill="#FF1493"/>
+          <circle cx="70" cy="185" r="7" fill="#FF1493"/>
+          <circle cx="45" cy="195" r="7" fill="#FF1493"/>
+          <circle cx="75" cy="195" r="7" fill="#FF1493"/>
+          <circle cx="50" cy="205" r="7" fill="#FF1493"/>
+          <circle cx="70" cy="205" r="7" fill="#FF1493"/>
+          <!-- Center -->
+          <circle cx="60" cy="195" r="5" fill="#FFD700"/>
+          <!-- Anime shine -->
+          <circle cx="58" cy="193" r="2" fill="#fff" opacity="0.7"/>
+        </g>
+        <!-- Flower 2 - Magenta -->
+        <g class="happy-flower-group">
+          <line x1="120" y1="230" x2="120" y2="195" stroke="#228B22" stroke-width="3"/>
+          <circle cx="120" cy="195" r="2" fill="#228B22"/>
+          <!-- Petals -->
+          <circle cx="110" cy="185" r="7" fill="#FF69B4"/>
+          <circle cx="130" cy="185" r="7" fill="#FF69B4"/>
+          <circle cx="105" cy="195" r="7" fill="#FF69B4"/>
+          <circle cx="135" cy="195" r="7" fill="#FF69B4"/>
+          <circle cx="110" cy="205" r="7" fill="#FF69B4"/>
+          <circle cx="130" cy="205" r="7" fill="#FF69B4"/>
+          <!-- Center -->
+          <circle cx="120" cy="195" r="5" fill="#FFD700"/>
+          <!-- Anime shine -->
+          <circle cx="118" cy="193" r="2" fill="#fff" opacity="0.7"/>
+        </g>
+        <!-- Flower 3 - Hot Pink -->
+        <g class="happy-flower-group">
+          <line x1="180" y1="230" x2="180" y2="195" stroke="#228B22" stroke-width="3"/>
+          <circle cx="180" cy="195" r="2" fill="#228B22"/>
+          <!-- Petals -->
+          <circle cx="170" cy="185" r="7" fill="#FF00FF"/>
+          <circle cx="190" cy="185" r="7" fill="#FF00FF"/>
+          <circle cx="165" cy="195" r="7" fill="#FF00FF"/>
+          <circle cx="195" cy="195" r="7" fill="#FF00FF"/>
+          <circle cx="170" cy="205" r="7" fill="#FF00FF"/>
+          <circle cx="190" cy="205" r="7" fill="#FF00FF"/>
+          <!-- Center -->
+          <circle cx="180" cy="195" r="5" fill="#FFD700"/>
+          <!-- Anime shine -->
+          <circle cx="178" cy="193" r="2" fill="#fff" opacity="0.7"/>
+        </g>
+      </g>
+      
+      <!-- Anime character sparkles/magic (hidden, appear on transform) -->
+      <g id="animeMagic" style="opacity: 0;">
+        <circle cx="100" cy="100" r="4" fill="#FF1493" opacity="0.8"/>
+        <circle cx="300" cy="150" r="4" fill="#FF69B4" opacity="0.8"/>
+        <circle cx="200" cy="80" r="4" fill="#FF00FF" opacity="0.8"/>
+        <circle cx="150" cy="180" r="4" fill="#FFB6C1" opacity="0.8"/>
+        <circle cx="280" cy="100" r="4" fill="#FF1493" opacity="0.8"/>
+        <circle cx="120" cy="160" r="3" fill="#FFD700" opacity="0.9"/>
+        <text x="70" y="140" font-size="24" fill="#FF1493" opacity="0.9">✨</text>
+        <text x="250" y="120" font-size="24" fill="#FF69B4" opacity="0.9">✨</text>
+        <text x="180" y="160" font-size="24" fill="#FF00FF" opacity="0.9">✨</text>
+      </g>
+      
+      <!-- Falling hearts (hidden, appear after animation) -->
+      <g id="fallingHearts" style="opacity: 0;">
+        <text x="50" y="80" font-size="35" fill="#FF1493" opacity="0.9">💕</text>
+        <text x="150" y="90" font-size="35" fill="#FF69B4" opacity="0.9">💕</text>
+        <text x="250" y="85" font-size="35" fill="#FF00FF" opacity="0.9">💕</text>
+        <text x="100" y="110" font-size="35" fill="#FF1493" opacity="0.9">💕</text>
+        <text x="300" y="105" font-size="35" fill="#FF69B4" opacity="0.9">💕</text>
+      </g>
+    </svg>
+    
+    <p id="transformText" style="margin-top: 20px; font-size: 16px; font-weight: 600; color: #ff69b4; opacity: 0; transition: opacity 1s ease;">
+      ✨ The world transforms when you're near! ✨
+    </p>
+  </div>
+
+  <!-- Love Letter -->
+  
+  <div id="loveCard" class="card love-letter">
+    <div class="header">
+      <h2>A Letter From My Heart</h2>
+      <div class="ornament">❦</div>
+    </div>
+    <div class="parchment">
+      <p id="letter"><span class="greeting">To:  my dearest gentle reader,</span><br></p>
+      <div class="btn-wrap">
+        <button id="revealBtn" onclick="encourageReveal(this)" class="level-0">Reveal My Feelings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reasons (hidden until revealed by animation) -->
+  <div id="reasonsCard" class="card love-letter" style="position:absolute; visibility:hidden; opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1);" aria-hidden="true">
+    <div class="header">
+      <h2>Why I Choose You</h2>
+      <div class="ornament">❦</div>
+    </div>
+    <div class="parchment">
+      <div id="reasonList"></div>
+      <div class="btn-wrap">
+          <button class="level-0" onclick="revealReason(this); encourageReveal(this)">Tell Me Why</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Red Envelope Gift -->
+  <div class="card" style="text-align:center; padding:40px 25px;">
+    <h2 style="margin-bottom:10px;">💌 A Valentine's Gift 💌</h2>
+    <p style="font-size:14px; opacity:0.9; margin-bottom:25px;">Click the red envelope to open a special Valentine's surprise...</p>
+    
+    <div class="scene" id="scene">
+        <div class="envelope" id="envelope">
+            <!-- Front -->
+            <div class="face front">
+                <div class="flap"></div>
+                <div style="position: absolute; bottom: 30px; width: 100%; text-align: center; color: gold; font-size: 18px; letter-spacing: 1px; text-shadow: 0 0 8px rgba(255,215,0,0.6); font-family: 'Georgia', serif;">Nthabiseng Maupye💍</div>
+            </div>
+        </div>
+    </div>
+     <!-- Video Pop-up -->
+  <div class="video-container" id="videoContainer">
+    <video id="video" src="her.mp4" controls disablePictureInPicture></video>
+    <button class="close-video" id="closeVideo" onclick="closeVideo()">✕</button>
+  </div>
+
+  <!-- Proposal Modal -->
+  <div class="proposal-modal" id="proposalModal">
+    <div class="proposal-content">
+      <h2>Will You Out With Me?</h2>
+      <p>💍 My dearest, will you do me the honor of accepting my proposal? 💍</p>
+      <div class="proposal-buttons">
+        <button class="proposal-btn btn-yes" onclick="handleYes()">Yes, I Will! 💕</button>
+        <button class="proposal-btn btn-no" id="noBtn" onclick="handleNo()">No, I Need Time...</button>
+      </div>
+        <div id="proposalStatus" style="margin-top:12px;color:#5a1a2a;font-weight:700;min-height:20px;"></div>
+    </div>
+  </div>
+
+ 
+  <!-- Final -->
+  <footer>
+    <p>
+      If I could code one constant in my life…<br>
+      <b>it would be you.</b>
+    </p>
+    <p><code>const myForever = you; // Forever 💕</code></p>
+  </footer>
+
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
